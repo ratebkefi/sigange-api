@@ -1,0 +1,192 @@
+== Customer
+
+=== Create / Post Collection
+
+==== Description
+/api/customers, method=Post
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,    Type,      Required, Comment
+code,        string,    true,     "String value of uuid"
+name,        string,    true,     "String value"
+description, string,    false,    "Description"
+userGroups,  IRI array, true,     "Array of IRI values of UserGroups"
+enabled,     boolean,   false,    "Enabled status, default to true"
+
+|===
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::post_collection_management_rules.csv[]
+|===
+
+
+<<<
+
+=== Read collection
+
+==== Description
+/api/customers, method=Get
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_collection_management_rules.csv[]
+|===
+
+==== Request Parameters
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters,     Type,    Required, Comment
+page,           number,  false,    "Page index, from 0"
+limit,          number,  false,    "Items per page"
+name,           string,  false,    "Filter by 'videoStream.name LIKE %name%' "
+enabled,        boolean, false,    "Enabled status"
+createdAt,      date,    false,    "Date of creation"
+updatedAt,      date,    false,    "Date of update"
+|===
+
+<<<
+
+=== Read item
+
+==== Description
+/api/customers/{code}, method=Get
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_item_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch
+
+==== Description
+/api/customers/{code}, method=Patch
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,    Type,      Required, Comment
+name,        string,    false,    "String value"
+description, string,    false,    "Description"
+userGroups,  IRI array, false,    "Array of IRI values of UserGroups"enabled,
+enabled,     boolean,   false,    "Enabled status, default to true"
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch enable
+
+==== Description
+/api/customers/{code}/enable, method=Patch
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch disable
+
+==== Description
+/api/customers/{code}/disable, method=Patch
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch name
+
+==== Description
+/api/customers/{code}/name, method=Patch
+
+===== Body Data (json)
+At least one of the fields must be provided.
+[cols=",,,~",format="csv",options="header"]
+|===
+Property, Type, Required, Comment
+name, string, false, "String value"
+description, string, false, "String value"
+
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+
+
+=== Put
+
+==== Description
+/api/customers/{code}, method=Put
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,    Type,      Required, Comment
+name,        string,    false,    "String value"
+description, string,    false,    "Description"
+userGroups,  IRI array, false,    "Array of IRI values of UserGroups"enabled,
+enabled,     boolean,   false,    "Enabled status, default to true"
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::put_management_rules.csv[]
+|===
+
+<<<
+
+
+=== Delete
+
+==== Description
+/api/customers/{code}, method=Delete
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::delete_management_rules.csv[]
+|===
+
+<<<
+
+==== Messages
+
+[cols=",~",format="csv",options="header"]
+|===
+ID, Content
+include::messages.csv[]
+|===
+<<<

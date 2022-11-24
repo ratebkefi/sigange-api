@@ -1,0 +1,91 @@
+== API Entity operations
+
+.Device
+[options="header"]
+|===
+| Operation name                                 | Updatable fields (for patch)     | Comment
+| api_devices_patch_comment_item                 | `comment`                        |
+| api_devices_patch_disable                      | -                                | Set `enabled` to `*false*`
+| api_devices_patch_enable                       | -                                | Set `enabled` to `*true*`
+| api_devices_patch_internal_comment_item        | `internalComment`                |
+| api_devices_patch_name_item                    | `name, description`              |
+| api_devices_patch_network_item                 | `network`                        |
+| api_devices_patch_platform_item                | `platform`                       |
+| api_devices_patch_remove_group                 | -                                | Set `userGroup` to `*null*`, set `site` to `*null*`, set `status` to `*Removed*`, set `name` to `*macAddress*` value
+| api_devices_patch_site_item                    | `site`                           |
+| api_devices_patch_status_item                  | `status`                         |
+| api_devices_get_enabled_outputs                |                                  | Get the DeviceOutputs only if they are completely enabled (Device, DeviceOutput, VideoOverlay, VideoStream)
+|===
+
+.Site
+[options="header"]
+|===
+| Operation name                                 | Updatable fields      | Comment
+| api_sites_patch_name_item                      | `name, description`   |
+| api_sites_patch_disable                        | -                     | Set `enabled` to `*false*`
+| api_sites_patch_enable                         | -                     | Set `enabled` to `*true*`
+|===
+
+.Device Output
+[options="header"]
+|===
+| Operation name                                 | Updatable fields      | Comment
+| api_device_outputs_patch_disable               | -                     | Set `enabled` to `*false*`
+| api_device_outputs_patch_enable                | -                     | Set `enabled` to `*true*`
+| api_device_outputs_patch_video_stream_item     | `videoStream`         |
+| api_device_outputs_patch_video_overlay_item    | `videoOverlay`        |
+|===
+
+.Customer
+[options="header"]
+|===
+| Operation name                                 | Updatable fields      | Comment
+| api_sites_patch_name_item                      | `name, description`   |
+| api_sites_patch_disable                        | -                     | Set `enabled` to `*false*`
+| api_sites_patch_enable                         | -                     | Set `enabled` to `*true*`
+|===
+
+.Network
+[options="header"]
+|===
+| Operation name                                 | Updatable fields      | Comment
+| api_networks_patch_name_item                   | `name, description`   |
+| api_networks_patch_disable                     | -                     | Set `enabled` to `*false*`
+| api_networks_patch_enable                      | -                     | Set `enabled` to `*true*`
+|===
+
+.Platform
+[options="header"]
+|===
+| Operation name                                 | Updatable fields      | Comment
+| api_platforms_patch_name_item                  | `name, description`   |
+| api_platforms_patch_disable                    | -                     | Set `enabled` to `*false*`
+| api_platforms_patch_enable                     | -                     | Set `enabled` to `*true*`
+|===
+
+.Video Overlay
+[options="header"]
+|===
+| Operation name                                 | Updatable fields      | Comment
+| api_video_overlays_patch_name_item             | `name, description`   |
+| api_video_overlays_patch_disable               | -                     | Set `enabled` to `*false*`
+| api_video_overlays_patch_enable                | -                     | Set `enabled` to `*true*`
+|===
+
+.Video Stream
+[options="header"]
+|===
+| Operation name                                 | Updatable fields      | Comment
+| api_video_streams_patch_name_item              | `name, description`   |
+| api_video_streams_patch_disable                | -                     | Set `enabled` to `*false*`
+| api_video_streams_patch_enable                 | -                     | Set `enabled` to `*true*`
+|===
+
+.Entity Display Customization
+[options="header"]
+|===
+| Operation name                                 | Updatable fields      | Comment
+| api_entity_display_customization_patch_custom  | `All the fields`      | Updates & if `isDefault` `*true*` set all the other entities of this `entityClassName` to `isDefault` `*false*`
+| api_entity_display_customization_put_custom    | `All the fields`      | Updates & if `isDefault` `*true*` set all the other entities of this `entityClassName` to `isDefault` `*false*`
+| api_entity_display_customization_post_custom   |`All the fields`       | Creates & if `isDefault` `*true*` set all the other entities of this `entityClassName` to `isDefault` `*false*`
+|===

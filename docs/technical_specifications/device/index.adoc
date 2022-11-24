@@ -1,0 +1,253 @@
+== Device
+
+=== Create / Post Collection
+
+==== Description
+/api/devices, method=Post
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,              Type,      Required, Comment
+code,                  string,    true,     "String value of uuid"
+name,                  string,    true,     "String value"
+description,           string,    false,    "Description"
+userGroup,             IRI,       false,    "IRI value of UserGroup"
+enabled,               boolean,   false,    "Enabled status, default to true"
+model,                 IRI,       true,     "IRI value of Device Model"
+site,                  IRI,       true,     "IRI value of Site"
+network,               IRI,       true,     "IRI value of Network"
+platform,              IRI,       true,     "IRI value of Platform"
+comment,               string,    false,    "String value"
+internalComment,       string,    false,    "String value"
+serialNumber,          string,    true,     "String value"
+macAddress,            string,    true,     "String value"
+osVersion,             string,    false,    "String value"
+wantedOsVersion,       string,    false,    "String value"
+softwareVersion,       string,    false,    "String value"
+wantedSoftwareVersion, string,    false,    "String value"
+isSshEnabled           boolean,   true,     "String value"
+isVpnEnabled           boolean,   true,     "String value"
+diagnostic             IRI,       true,     "String value"
+status                 IRI,       true,     "IRI value of Device Status"
+outputs                IRI Array, false,    "Array of the IRI values of outputs"
+|===
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::post_collection_management_rules.csv[]
+|===
+
+
+<<<
+
+=== Read collection
+
+==== Description
+/api/devices, method=Get
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_collection_management_rules.csv[]
+|===
+
+==== Request Parameters
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type,    Required,   Comment
+page,            number,  false, "Page index, from 0"
+limit,           number,  false, "Items per page"
+name,            string,  false, "Filter by 'customer.name LIKE %name%'"
+code,            string,  false, "Search on code"
+enabled,         boolean, false, "Enabled status"
+createdAt,       date,    false, "Date of creation"
+updatedAt,       date,    false, "Date of update"
+search_global,   string,  false, "Search on multiple fields"
+search_network,  string,  false, "Search on some networks fields"
+search_site,     string,  false, "Search on some site fields"
+site.name,       string,  false, "Search on site name"
+site.externalId, string,  false, "Search on site externalId"
+network.name,    string,  false, "Search on network name"
+serialNumber,    string,  false, "Search on serialNumber"
+macAddress,      string,  false, "Search on macAddress"
+isSshEnabled,    boolean, false, "Search on isSshEnabled"
+isVpnEnabled,    boolean, false, "Search on isVpnEnabled"
+status.name,     string,  false, "Search on status name"
+|===
+
+<<<
+
+=== Read item
+
+==== Description
+/api/devices/{code}, method=Get
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_item_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch
+
+==== Description
+/api/devices/{code}, method=Patch
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,              Type,      Required, Comment
+name,                  string,    true,     "String value"
+description,           string,    false,    "Description"
+userGroup,             IRI,       false,    "IRI value of UserGroup"
+enabled,               boolean,   false,    "Enabled status, default to true"
+model,                 IRI,       true,     "IRI value of Device Model"
+site,                  IRI,       true,     "IRI value of Site"
+network,               IRI,       true,     "IRI value of Network"
+platform,              IRI,       true,     "IRI value of Platform"
+comment,               string,    false,    "String value"
+internalComment,       string,    false,    "String value"
+serialNumber,          string,    true,     "String value"
+macAddress,            string,    true,     "String value"
+osVersion,             string,    false,    "String value"
+wantedOsVersion,       string,    false,    "String value"
+softwareVersion,       string,    false,    "String value"
+wantedSoftwareVersion, string,    false,    "String value"
+isSshEnabled           boolean,   true,     "String value"
+isVpnEnabled           boolean,   true,     "String value"
+diagnostic             IRI,       true,     "String value"
+status                 IRI,       true,     "IRI value of Device Status"
+outputs                IRI Array, false,    "Array of the IRI values of outputs"
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch enable
+
+==== Description
+/api/devices/{code}/enable, method=Patch
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch disable
+
+==== Description
+/api/devices/{code}/disable, method=Patch
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch name
+
+==== Description
+/api/devices/{code}/name, method=Patch
+
+===== Body Data (json)
+At least one of the fields must be provided.
+[cols=",,,~",format="csv",options="header"]
+|===
+Property, Type, Required, Comment
+name, string, false, "String value"
+description, string, false, "String value"
+
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+
+
+=== Put
+
+==== Description
+/api/devices/{code}, method=Put
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,              Type,      Required, Comment
+name,                  string,    true,     "String value"
+description,           string,    false,    "Description"
+userGroup,             IRI,       false,    "IRI value of UserGroup"
+enabled,               boolean,   false,    "Enabled status, default to true"
+model,                 IRI,       true,     "IRI value of Device Model"
+site,                  IRI,       true,     "IRI value of Site"
+network,               IRI,       true,     "IRI value of Network"
+platform,              IRI,       true,     "IRI value of Platform"
+comment,               string,    false,    "String value"
+internalComment,       string,    false,    "String value"
+serialNumber,          string,    true,     "String value"
+macAddress,            string,    true,     "String value"
+osVersion,             string,    false,    "String value"
+wantedOsVersion,       string,    false,    "String value"
+softwareVersion,       string,    false,    "String value"
+wantedSoftwareVersion, string,    false,    "String value"
+isSshEnabled           boolean,   true,     "String value"
+isVpnEnabled           boolean,   true,     "String value"
+diagnostic             IRI,       true,     "String value"
+status                 IRI,       true,     "IRI value of Device Status"
+outputs                IRI Array, false,    "Array of the IRI values of outputs"
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::put_management_rules.csv[]
+|===
+
+<<<
+
+
+
+=== Delete
+
+==== Description
+/api/devices/{code}, method=Delete
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::delete_management_rules.csv[]
+|===
+
+<<<
+
+==== Messages
+
+[cols=",~",format="csv",options="header"]
+|===
+ID, Content
+include::messages.csv[]
+|===
+<<<

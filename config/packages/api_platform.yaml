@@ -1,0 +1,22 @@
+api_platform:
+    title: 'Digital Signage'
+    description: 'A Digital Signage Server API provided by Hexaglobe'
+    version: '2.0.0-dev'
+    show_webby: false
+    collection:
+        pagination:
+            client_items_per_page: true
+            maximum_items_per_page: 100
+    mapping:
+        paths: ['%kernel.project_dir%/src/Entity']
+    patch_formats:
+        json: ['application/merge-patch+json']
+    swagger:
+        versions: [3]
+        api_keys:
+            apiKey:
+                name: Authorization
+                type: header
+    eager_loading:
+        # To prevent errors while fetching too much relations for some entities
+        force_eager: false

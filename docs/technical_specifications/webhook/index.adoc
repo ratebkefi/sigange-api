@@ -1,0 +1,174 @@
+== Webhook
+=== Create / Post Collection
+
+==== Description
+Create a Webhook
+
+/api/webhooks, method=Post
+
+===== Post Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,      Type,   Required, Comment
+code,          string, true,     "String value of uuid"
+name,          string, true,     "String value"
+url,           string, true,     "String value"
+eventType,     string, true,     "String value"
+resourceClass, string, true,     "String value"
+userGroup,     IRI,    true,     "IRI value of UserGroup"
+
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::post_collection_management_rules.csv[]
+|===
+
+==== Messages
+
+[cols=",~",format="csv",options="header"]
+|===
+ID, Content
+include::post_collection_messages.csv[]
+|===
+
+=== Read / Get Collection
+
+==== Description
+Retrieve a list of UserGroup
+/api/webhooks, method=Get
+
+==== Request Parameters
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters,     Type,   Required, Comment
+page,           number, false,    "Page index, from 0"
+limit,          number, false,    "Items per page"
+name,           string, false,    "Filter by 'webhook.name LIKE %name%' "
+userGroup.name, string, false,    "Filter on userGroup.name"
+createdAt,      date,   false,    "Date of creation"
+updatedAt,      date,   false,    "Date of update"
+|===
+
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_collection_management_rules.csv[]
+|===
+
+=== Read / Get Item
+
+==== Description
+Retrieve a UserGroup
+/api/webhooks/{code}, method=Get
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_item_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch
+
+==== Description
+/api/user_groups/{code}, method=Patch
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,      Type,   Required, Comment
+name,          string, false,    "String value"
+url,           string, false,    "String value"
+eventType,     string, false,    "String value"
+resourceClass, string, false,    "String value"
+userGroup,     IRI,    false,    "IRI value of UserGroup"
+
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_management_rules.csv[]
+|===
+
+<<<
+
+
+=== Update / Put Item
+
+==== Description
+Update a UserGroup
+/api/webhooks/{code}, method=Put
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+===== Put Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,      Type,   Required, Comment
+name,          string, false,    "String value"
+url,           string, false,    "String value"
+eventType,     string, false,    "String value"
+resourceClass, string, false,    "String value"
+userGroup,     IRI,    false,    "IRI value of UserGroup"
+
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::put_item_management_rules.csv[]
+|===
+
+=== Delete / Delete Item
+
+==== Description
+Delete a UserGroup
+/api/webhooks/{code}, method=Delete
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::delete_item_management_rules.csv[]
+|===

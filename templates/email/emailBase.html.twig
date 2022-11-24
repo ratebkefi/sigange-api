@@ -1,0 +1,35 @@
+{% apply inky_to_html|inline_css(source('@styles/foundation-emails.css'), source('@styles/email.css')) %}
+    <container>
+        <row class="header">
+            <columns small="12" valign="middle">
+                <spacer size="15"></spacer>
+                {# Get the logo corresponding to the userGroup when available #}
+                <h2 class="userGroup">
+                    <img src='{{ userGroup.name ? email.image("@images/#{userGroup.name | lower}.png")
+                         : email.image('@images/logo_signage.png') }}'
+                         class="logo" alt="Logo">
+                    {{ userGroup.name | upper }}
+                </h2>
+            </columns>
+        </row>
+        {% block content %}
+        {% endblock %}
+        <hr>
+        <row class="footer">
+            <columns>
+                <p>Regards,</p>
+                <p>{{ userGroup.name ? userGroup.name | capitalize : {{ email_signature_name }} }}</p>
+            </columns>
+        </row>
+        <row class="bottom">
+            <columns>
+                <center>
+                    <spacer size="20"></spacer>
+                    <div class="signature">
+                        Sent by {{ userGroup.name ?: {{ email_signature_name }} }}
+                    </div>
+                </center>
+            </columns>
+        </row>
+    </container>
+{% endapply %}

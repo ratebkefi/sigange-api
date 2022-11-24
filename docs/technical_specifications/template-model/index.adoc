@@ -1,0 +1,169 @@
+== Template Model
+=== Create / Post Collection
+
+==== Description
+Create a TemplateModel
+
+/api/template_models, method=Post
+
+===== Post Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,             Type,      Required, Comment
+code,                 string,    true,     "String value of uuid"
+name,                 string,    true,     "String value"
+url,                  string,    true,     "Valid url"
+platform,             IRI,       false,    "IRI value of Platform"
+templateModelOutputs, IRI array, false,    "IRI value of Template Model Output"
+
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::post_collection_management_rules.csv[]
+|===
+
+==== Messages
+
+[cols=",~",format="csv",options="header"]
+|===
+ID, Content
+include::post_collection_messages.csv[]
+|===
+
+=== Read / Get Collection
+
+==== Description
+Retrieve a list of TemplateModel
+/api/template_models, method=Get
+
+==== Request Parameters
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type,     Required, Comment
+page,       number,   false,    "Page index, from 0"
+limit,      number,   false,    "Items per page"
+name,       string,   false,    "Filter by 'templateModel.name LIKE %name%'"
+createdAt,  date,     false,    "Search on date of creation"
+updatedAt,  date,     false,    "Search on date of update"
+|===
+
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_collection_management_rules.csv[]
+|===
+
+=== Read / Get Item
+
+==== Description
+Retrieve a TemplateModel
+/api/template_models/{code}, method=Get
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_item_management_rules.csv[]
+|===
+
+
+
+<<<
+
+=== Patch
+
+==== Description
+/api/tag_groups/{code}, method=Patch
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,             Type,      Required, Comment
+name,                 string,    true,     "String value"
+url,                  string,    true,     "Valid url"
+platform,             IRI,       false,    "IRI value of Platform"
+templateModelOutputs, IRI array, false,    "IRI value of Template Model Output"
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_management_rules.csv[]
+|===
+
+<<<
+
+=== Update / Put Item
+
+==== Description
+Update a TemplateModel
+/api/template_models/{code}, method=Put
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+===== Put Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,             Type,      Required, Comment
+name,                 string,    true,     "String value"
+url,                  string,    true,     "Valid url"
+platform,             IRI,       false,    "IRI value of Platform"
+templateModelOutputs, IRI array, false,    "IRI value of Template Model Output"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::put_item_management_rules.csv[]
+|===
+
+=== Delete / Delete Item
+
+==== Description
+Delete a TemplateModel
+/api/template_models/{code}, method=Delete
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::delete_item_management_rules.csv[]
+|===

@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  signage:
+    container_name: signage-web
+    image: nginx
+    env_file: env-signage
+    volumes:
+      - /data/docker/confs/signage-nginx/nginx.conf:/etc/nginx/conf.d/signage.conf
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.signage.rule=Host('${DASHBOARD_HOST:-Hostname not set}')"
+      - "traefik.http.routers.signage.entrypoints=websecure"
+      - "traefik.http.routers.signage.tls.certresolver=letsencryptresolver"
+      - "traefik.http.services.signage.loadbalancer.server.port=80"
+  
+  php:
+    container_name: signage-php
+    image: php:7.4.13-fpm
+  
+  db:
+    container_name: signage-db
+    image: mysql
+    env_file: env-signage
+    command: [ "--default-authentication-plugin=mysql_native_password"]
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-Mysql root password string empty}
+      - MYSQL_DATABASE=${DB_NAME:-DB name not set}
+      - MYSQL_USER=${MYSQL_USER:-Mysql db user not set}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-Mysql user password string empty}
+
+networks:
+  traefik:
+    external: true

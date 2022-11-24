@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+
+  # Web Container
+  signage:
+    container_name: signage_web
+    image: nginx
+    ports:
+      - "$PORT_NGINX:80"
+    volumes:
+      - ./../..:/var/www/signage:ro
+      #- ./nginx.conf:/etc/nginx/conf.d/signage.conf
+      #- ${PATH_CONFIG:./config}/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - $PATH_CONFIG/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - $PATH_LOG:/var/log/nginx/
+    depends_on:
+      - php
+    networks:
+      - php
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.signage.rule=Host('${DASHBOARD_HOST:-Hostname not set}')"
+      - "traefik.http.routers.signage.entrypoints=websecure"
+      - "traefik.http.routers.signage.tls.certresolver=letsencryptresolver"
+      - "traefik.http.services.signage.loadbalancer.server.port=8001"
+    restart: unless-stopped
+
+  # PHP Container
+  php:
+    container_name: signage_php
+    #    image: library/php:7-fpm
+    image: chialab/php:7.4-fpm
+#    build:
+#      context: ./php
+    volumes:
+      - ./../..:/var/www/signage
+    depends_on:
+      - db
+    networks:
+      - php
+      - db
+    restart: unless-stopped
+
+  # Database
+  db:
+    container_name: signage_db
+    image: mysql
+    volumes:
+      - $PATH_DATABASE:/var/lib/mysql    # Enregistrement des données SQL dans ce dossier
+    command: [ "--default-authentication-plugin=mysql_native_password" ]
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    ports:
+      - "$PORT_DB:3306"
+    networks:
+      - db
+    restart: unless-stopped
+
+networks:
+  db:
+  php:
+  traefik:
+   # external: true

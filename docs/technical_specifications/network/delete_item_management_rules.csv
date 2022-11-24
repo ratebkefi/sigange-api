@@ -1,0 +1,6 @@
+MR_DSA_NETWORK_DELETE_ITEM_001, 1.0.0, , "Role `ROLE_NETWORK_DELETE_ITEM` is required"
+MR_DSA_NETWORK_DELETE_ITEM_002, 1.0.0, , "Parameter `code` is required"
+MR_DSA_NETWORK_DELETE_ITEM_003, 1.0.0, , "Parameter `code` is a valid uuid"
+MR_DSA_NETWORK_DELETE_ITEM_004, 1.0.0, , "No other entity point to it"
+MR_DSA_NETWORK_DELETE_ITEM_005, 1.0.0, , "If another entity point to it show message : MSG_DSA_NETWORK_DELETE_ITEM_001"
+

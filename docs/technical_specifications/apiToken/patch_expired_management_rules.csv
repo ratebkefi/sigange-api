@@ -1,0 +1,4 @@
+MR_DSA_API_TOKEN_PATCH_EXPIRED_001, 1.0.0, ,"Role `Admin` and `ROLE_APITOKEN_PATCH_EXPIRED_AT` are required"
+MR_DSA_API_TOKEN_PATCH_EXPIRED_002, 1.0.0, , "Only the field `expiredAt` is editable."
+MR_DSA_API_TOKEN_PATCH_EXPIRED_003, 1.0.0, , "Parameter `code` is required"
+MR_DSA_API_TOKEN_PATCH_EXPIRED_004, 1.0.0, , "Parameter `code` is a valid uuid"

@@ -1,0 +1,5 @@
+MR_DSA_SITE_GET_ITEM_001, 1.0.0, , "Role `ROLE_SITE_GET_ITEM` is required"
+MR_DSA_SITE_GET_ITEM_002, 1.0.0, , "Using `properties[]=myPropertyName` query param allows to only get the field `myPropertyName` and the json-ld fields."
+MR_DSA_SITE_GET_ITEM_003, 1.0.0, , "Parameter `code` is required"
+MR_DSA_SITE_GET_ITEM_004, 1.0.0, , "Parameter `code` is a valid uuid"
+

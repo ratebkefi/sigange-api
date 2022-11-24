@@ -1,0 +1,3 @@
+MR_DSA_SITE_PATCH_DISABLE_001, 1.0.0, , "Role `ROLE_SITE_PATCH_DISABLE` is required"
+MR_DSA_SITE_PATCH_DISABLE_002, 1.0.0, , "Parameter `code` is required"
+MR_DSA_SITE_PATCH_DISABLE_003, 1.0.0, , "Parameter `code` is a valid uuid"

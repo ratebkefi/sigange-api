@@ -1,0 +1,2 @@
+MR_DSA_COMMON_FILTER_001, 1.0.0, , "When `createdAt[before|after|strictly_before|strictly_after]` filter is used, the data returned should be before|after|strictly_before|strictly_after the given date."
+MR_DSA_COMMON_FILTER_002, 1.0.0, , "When `createdAt[before|after|strictly_before|strictly_after]` filter is used,  and no data satisfy the filter, an empty array should be returned for the data"

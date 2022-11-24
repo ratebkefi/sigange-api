@@ -1,0 +1,4 @@
+MR_DSA_PLATFORM_PATCH_NAME_001, 1.0.0, , "Role `ROLE_PLATFORM_PATCH_NAME` is required"
+MR_DSA_PLATFORM_PATCH_NAME_002, 1.0.0, , "Only the fields `name` and `description` are editable."
+MR_DSA_PLATFORM_PATCH_NAME_003, 1.0.0, , "Parameter `code` is required"
+MR_DSA_PLATFORM_PATCH_NAME_004, 1.0.0, , "Parameter `code` is a valid uuid"

@@ -1,0 +1,6 @@
+MR_DSA_EVENT_POST_COLLECTION_001, 1.0.0, , "Role `ROLE_ENTITY_EVENT_POST_COLLECTION` is required"
+MR_DSA_EVENT_POST_COLLECTION_002, 1.0.0, , "Property `code` is required"
+MR_DSA_EVENT_POST_COLLECTION_003, 1.0.0, , "Property `code` must be a valid uuid"
+MR_DSA_EVENT_POST_COLLECTION_004, 1.0.0, , "Parameter `entityClassName` is required"
+MR_DSA_EVENT_POST_COLLECTION_005, 1.0.0, , "Parameter `entityClassName` is a string"
+MR_DSA_EVENT_POST_COLLECTION_006, 1.0.0, , "Parameter `entityClassName` should be the name of a class implementing WatchableInterface"

@@ -1,0 +1,202 @@
+== DeviceDiagnostic
+
+=== Create / Post Collection
+
+==== Description
+Create a DeviceDiagnostic
+
+/api/device_diagnostics, method=Post
+
+===== Post Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,                  Type,      Required, Comment
+code,                      string,    true,     "String value of uuid"
+device,                    IRI,       true,     "IRI value of Device"
+ipV4,                      string,    true,     "String value"
+ipV6,                      string,    false,    "String value"
+lastPingAt,                string,    false,    "DateTime value"
+lastHttpConnectionAt,      string,    false,    "DateTime value"
+lastSshConnectionAt,       string,    false,    "DateTime value"
+lastVpnConnectionAt,       string,    false,    "DateTime value"
+lastWebsocketConnectionAt, string,    false,    "DateTime value"
+
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::post_collection_management_rules.csv[]
+|===
+
+==== Messages
+
+[cols=",~",format="csv",options="header"]
+|===
+ID, Content
+include::post_collection_messages.csv[]
+|===
+
+<<<
+
+=== Read / Get Collection
+
+==== Description
+Retrieve a list of DeviceDiagnostic
+/api/device_diagnostics, method=Get
+
+==== Request Parameters
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters,                Type,    Required, Comment
+page,                      number,  false,    "Page index, from 0"
+limit,                     number,  false,    "Items per page"
+name,                      string,  false,    "Filter by 'deviceDiagnostic.name LIKE %name%'"
+createdAt,                 date,    false,    "Search on date of creation"
+updatedAt,                 date,    false,    "Search on date of update"
+lastPingAt,                date,    false,    "Search on date of last ping"
+lastHttpConnectionAt,      date,    false,    "Search on date of last http connection"
+lastSshConnectionAt,       date,    false,    "Search on date of last ssh connection"
+lastVpnConnectionAt,       date,    false,    "Search on date of last vpn connection"
+lastWebsocketConnectionAt, date,    false,    "Search on date of last web socket connection"
+device.macAddress,         string,  false,    "Search on device macAddress"
+device.name,               string,  false,    "Search on device name"
+site.externalId,           string,  false,    "Search on site externalId"
+network.name,              string,  false,    "Search on network name"
+serialNumber,              string,  false,    "Search on serialNumber"
+isSshEnabled,              boolean, false,    "Search on isSshEnabled"
+isVpnEnabled,              boolean, false,    "Search on isVpnEnabled"
+status.name,               string,  false,    "Search on status name"
+|===
+
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_collection_management_rules.csv[]
+|===
+
+<<<
+
+
+=== Read / Get Item
+
+==== Description
+Retrieve a DeviceDiagnostic
+/api/device_diagnostics/{code}, method=Get
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_item_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch
+
+==== Description
+/api/device_diagnostics/{code}, method=Patch
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,                  Type,      Required, Comment
+device,                    IRI,       false,    "IRI value of Device"
+ipV4,                      string,    false,    "String value"
+ipV6,                      string,    false,    "String value"
+lastPingAt,                string,    false,    "DateTime value"
+lastHttpConnectionAt,      string,    false,    "DateTime value"
+lastSshConnectionAt,       string,    false,    "DateTime value"
+lastVpnConnectionAt,       string,    false,    "DateTime value"
+lastWebsocketConnectionAt, string,    false,    "DateTime value"
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_management_rules.csv[]
+|===
+
+<<<
+
+
+=== Update / Put Item
+
+==== Description
+Update a DeviceDiagnostic
+/api/device_diagnostics/{code}, method=Put
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+===== Put Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,                  Type,      Required, Comment
+device,                    IRI,       false,    "IRI value of Device"
+ipV4,                      string,    false,    "String value"
+ipV6,                      string,    false,    "String value"
+lastPingAt,                string,    false,    "DateTime value"
+lastHttpConnectionAt,      string,    false,    "DateTime value"
+lastSshConnectionAt,       string,    false,    "DateTime value"
+lastVpnConnectionAt,       string,    false,    "DateTime value"
+lastWebsocketConnectionAt, string,    false,    "DateTime value"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::put_item_management_rules.csv[]
+|===
+
+<<<
+
+
+=== Delete / Delete Item
+
+==== Description
+Delete a DeviceDiagnostic
+/api/device_diagnostics/{code}, method=Delete
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::delete_item_management_rules.csv[]
+|===

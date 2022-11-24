@@ -1,0 +1,3 @@
+MR_DSA_API_TOKEN_DELETE_ITEM_001, 1.0.0, , "Role `Admin` and `ROLE_APITOKEN_DELETE_ITEM` are required"
+MR_DSA_API_TOKEN_DELETE_ITEM_002, 1.0.0, , "Parameter `code` is required"
+MR_DSA_API_TOKEN_DELETE_ITEM_003, 1.0.0, , "Parameter `code` is a valid uuid"

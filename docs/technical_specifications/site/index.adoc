@@ -1,0 +1,245 @@
+== Site
+=== Create / Post Collection
+
+==== Description
+Create a Site
+
+/api/sites, method=Post
+
+===== Post Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,      Type,      Required, Comment
+code,          string,    true,    "String value of uuid"
+name,          string,    true,    "String value"
+description,   string,    false,   "String value"
+externalId,    string,    false,   "String value"
+enabled,       boolean,   false,   "String value"
+userGroup,     IRI,       true,    "IRI value of UserGroup"
+address,       object,    false,   "An object with the following string properties: `country`, `city`,`zipCode`, `street`"
+contact,       object,    false,   "An object with the following string properties: `firstName`, `lastName`,`gender`, `email`, `phone`"
+tagsData,      json,      false,   "An object with Tag Groups IRI with arrays of Tags IRI"
+networks,      IRI array, false,   "An array of IRI values of Network"
+templateModel, IRI,       false,    "IRI value of Template Model"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::post_collection_management_rules.csv[]
+|===
+
+==== Messages
+
+[cols=",~",format="csv",options="header"]
+|===
+ID, Content
+include::post_collection_messages.csv[]
+|===
+
+
+=== Read / Get Collection
+
+==== Description
+Retrieve a list of Site
+/api/sites, method=Get
+
+==== Request Parameters
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters,           Type,     Required, Comment
+page,                 number,   false,    "Page index, from 0"
+limit,                number,   false,    "Items per page"
+name,                 string,   false,    "Filter by 'site.name LIKE %name%'"
+userGroup.name,       string,   false,    "Search on usergroup name"
+enabled,              boolean,  false,    "Search on enabled status"
+externalId,           string,   false,    "Search on serialNumber"
+createdAt,            date,     false,    "Search on date of creation"
+updatedAt,            date,     false,    "Search on date of update"
+exists[templateModel], boolean, false,    "Filter by no templateModel (false) or with a templateModel (true)"
+|===
+
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_collection_management_rules.csv[]
+|===
+
+=== Read / Get Item
+
+==== Description
+Retrieve a Site
+/api/sites/{code}, method=Get
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+
+
+
+<<<
+
+=== Patch
+
+==== Description
+/api/sites/{code}, method=Patch
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,      Type,      Required, Comment
+name,          string,    true,    "String value"
+description,   string,    false,   "String value"
+externalId,    string,    false,   "String value"
+enabled,       boolean,   false,   "String value"
+userGroup,     IRI,       true,    "IRI value of UserGroup"
+address,       object,    false,   "An object with the following string properties: `country`, `city`,`zipCode`, `street`"
+contact,       object,    false,   "An object with the following string properties: `firstName`, `lastName`,`gender`, `email`, `phone`"
+tagsData,      json,      false,   "An object with Tag Groups IRI with arrays of Tags IRI"
+networks,      IRI array, false,   "An array of IRI values of Network"
+templateModel, IRI,       false,    "IRI value of Template Model"
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch enable
+
+==== Description
+/api/sites/{code}/enable, method=Patch
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch disable
+
+==== Description
+/api/sites/{code}/disable, method=Patch
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch name
+
+==== Description
+/api/sites/{code}/name, method=Patch
+
+===== Body Data (json)
+At least one of the fields must be provided.
+[cols=",,,~",format="csv",options="header"]
+|===
+Property, Type, Required, Comment
+name, string, false, "String value"
+description, string, false, "String value"
+
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_item_management_rules.csv[]
+|===
+
+
+
+=== Update / Put Item
+
+==== Description
+Update a Site
+/api/sites/{code}, method=Put
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+===== Put Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,      Type,      Required, Comment
+name,          string,    true,    "String value"
+description,   string,    false,   "String value"
+externalId,    string,    false,   "String value"
+enabled,       boolean,   false,   "String value"
+userGroup,     IRI,       true,    "IRI value of UserGroup"
+address,       object,    false,   "An object with the following string properties: `country`, `city`,`zipCode`, `street`"
+contact,       object,    false,   "An object with the following string properties: `firstName`, `lastName`,`gender`, `email`, `phone`"
+tagsData,      json,      false,   "An object with Tag Groups IRI with arrays of Tags IRI"
+networks,      IRI array, false,   "An array of IRI values of Network"
+templateModel, IRI,       false,    "IRI value of Template Model"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::put_item_management_rules.csv[]
+|===
+
+=== Delete / Delete Item
+
+==== Description
+Delete a Site
+/api/sites/{code}, method=Delete
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::delete_item_management_rules.csv[]
+|===

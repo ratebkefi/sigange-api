@@ -1,0 +1,42 @@
+= Technical Specifications
+
+== Common rules
+These rules apply for all the entities.
+
+=== Filters
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::common_rules.csv[]
+|===
+<<<
+
+include::apiToken/index.adoc[]
+<<<
+include::customer/index.adoc[]
+<<<
+include::device-model/index.adoc[]
+<<<
+include::network/index.adoc[]
+<<<
+include::platform/index.adoc[]
+<<<
+include::screen/index.adoc[]
+<<<
+include::site/index.adoc[]
+<<<
+include::tag/index.adoc[]
+<<<
+include::tag-group/index.adoc[]
+<<<
+include::template-model/index.adoc[]
+<<<
+include::user/index.adoc[]
+<<<
+include::user-group/index.adoc[]
+<<<
+include::video-overlay/index.adoc[]
+<<<
+include::video-stream/index.adoc[]
+

@@ -1,0 +1,19 @@
+== Event (generic event)
+=== Create / Post Collection
+
+==== Description
+/api/entity_events, method=Post
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,        Type,   Required, Comment
+code,            string, true,     "String value of uuid"
+entityClassName, string, false,    "String value"
+|===
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::post_collection_management_rules.csv[]
+|===

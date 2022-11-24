@@ -1,0 +1,25 @@
+{% extends 'email/emailBase.html.twig' %}
+{% block content %}
+    <container>
+        <row class="top">
+            <columns>
+                <spacer size="35"></spacer>
+                <h1>
+                    <center>
+                        New {{ className }}
+                    </center>
+                </h1>
+                <spacer size="10"></spacer>
+            </columns>
+        </row>
+        <row class="main">
+            <columns>
+                <spacer size="40"></spacer>
+                <p class="text-left">
+                    New {{ className }} <b>{{ entity.name }}</b> has been created successfully at {{ entity.createdAt | date("H:i \\o\\n l jS F Y") }}.
+                </p>
+                <spacer size="40"></spacer>
+            </columns>
+        </row>
+    </container>
+{% endblock %}

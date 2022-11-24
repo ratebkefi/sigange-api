@@ -1,0 +1,86 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+  app.email_from_noreply: '%env(EMAIL_NO_REPLY)%'
+  app.email_from_name: '%env(EMAIL_FROM_NAME)%'
+  app.url_reset_password: '%env(URL_RESET_PASSWORD)%'
+  app.email_signature_name: '%env(EMAIL_SIGNATURE_NAME)%'
+
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  App\:
+    resource: '../src/'
+    exclude:
+      - '../src/DependencyInjection/'
+      - '../src/Entity/'
+      - '../src/Kernel.php'
+      - '../src/Tests/'
+
+  # controllers are imported separately to make sure services can be injected
+  # as action arguments even if you don't extend any base controller class
+  App\Controller\:
+    resource: '../src/Controller/'
+    tags: [ 'controller.service_arguments' ]
+
+  # add more service definitions when explicit configuration is needed
+  # please note that last definitions always *replace* previous ones
+  App\OpenApi\JwtDecorator:
+    decorates: 'api_platform.openapi.factory'
+    autoconfigure: false
+
+  App\OpenApi\EventHandlingDecorator:
+    decorates: 'api_platform.openapi.factory'
+    autoconfigure: false
+
+  App\OpenApi\OpenApiFactory:
+    decorates: 'api_platform.openapi.factory'
+    arguments: [ '@App\OpenApi\OpenApiFactory.inner' ]
+    autoconfigure: false
+
+  # Custom voter to allow UserAdmin access and override default Symfony RoleVoter
+  App\Security\Voter\CustomRoleVoter:
+    decorates: 'security.access.simple_role_voter'
+  App\Security\Voter\UserGroupVisibilityVoter:
+    class: 'App\Security\Voter\UserGroupVisibilityVoter'
+    tags:
+      - { name: 'security.voter', priority: 249 }
+  'App\EventListener\EntityUpdateNotifier':
+    tags:
+      - name: 'doctrine.event_listener'
+        event: 'postUpdate'
+      - name: 'doctrine.event_listener'
+        event: 'postFlush'
+  'App\EventListener\UserPasswordUpdate':
+    autowire: true
+    tags:
+      - name: 'doctrine.event_listener'
+        event: 'preUpdate'
+      - name: 'doctrine.event_listener'
+        event: 'prePersist'
+  App\DataTransformer\VideoStreamDataTransformer: ~
+  # Uncomment only if autoconfiguration is disabled
+  #tags: [ 'api_platform.data_transformer' ]
+  App\DataTransformer\VideoOverlayDataTransformer: ~
+  # Uncomment only if autoconfiguration is disabled
+  #tags: [ 'api_platform.data_transformer' ]
+  App\DataTransformer\DeviceDataTransformer: ~
+  # Uncomment only if autoconfiguration is disabled
+  #tags: [ 'api_platform.data_transformer' ]
+  App\DataTransformer\NetworkDataTransformer: ~
+  # Uncomment only if autoconfiguration is disabled
+  #tags: [ 'api_platform.data_transformer' ]
+  App\DataTransformer\ScreenDataTransformer: ~
+  # Uncomment only if autoconfiguration is disabled
+  #tags: [ 'api_platform.data_transformer' ]
+  App\DataTransformer\SiteDataTransformer: ~
+  # Uncomment only if autoconfiguration is disabled
+  #tags: [ 'api_platform.data_transformer' ]

@@ -1,0 +1,143 @@
+== Api Token
+
+=== Create / Post Collection
+
+==== Description
+/api/video-streams, method=Post
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property, Type, Required, Comment
+code, string, true, "String value of uuid"
+name, string, false, "String value"
+user, IRI, true, "IRI value of User"
+userGroup, IRI, true, "IRI value of UserGroup"
+expiredAt,date, true, "Format `Y-m-d` or `Y-m-d H:i:s`"
+|===
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::post_collection_management_rules.csv[]
+|===
+
+
+
+=== Read collection
+
+==== Description
+/api/api_tokens, method=Get
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_collection_management_rules.csv[]
+|===
+
+==== Request Parameters
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters,     Type,    Required, Comment
+page,           number,  false,    "Page index, from 0"
+limit,          number,  false,    "Items per page"
+name,           string,  false,    "Filter by 'videoStream.name LIKE %name%' "
+createdAt,      date,    false,    "Date of creation"
+updatedAt,      date,    false,    "Date of update"
+|===
+
+
+<<<
+
+=== Read item
+
+==== Description
+/api/api_tokens/{code}, method=Get
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_item_management_rules.csv[]
+|===
+
+<<<
+
+
+=== Patch
+
+==== Description
+/api/api_tokens/{code}, method=Patch
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property, Type, Required, Comment
+expiredAt,date, true, "Format `Y-m-d` or `Y-m-d H:i:s`"
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch expired
+
+==== Description
+/api/api_tokens/{code}, method=Patch
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property, Type, Required, Comment
+expiredAt,date, true, "Format `Y-m-d` or `Y-m-d H:i:s`"
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_expired_management_rules.csv[]
+|===
+
+<<<
+
+=== Put
+
+==== Description
+A Put call is not possible.
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::put_management_rules.csv[]
+|===
+
+
+<<<
+
+=== Delete
+
+==== Description
+/api/api_tokens/{code}, method=Delete
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::delete_management_rules.csv[]
+|===
+
+==== Messages
+
+[cols=",~",format="csv",options="header"]
+|===
+ID, Content
+include::messages.csv[]
+|===

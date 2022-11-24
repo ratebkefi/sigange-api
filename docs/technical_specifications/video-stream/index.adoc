@@ -1,0 +1,225 @@
+== Video Stream
+=== Create / Post Collection
+
+==== Description
+Create a VideoStream
+
+/api/video_streams, method=Post
+
+===== Post Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,    Type,    Required, Comment
+code,        string,  true,     "String value of uuid"
+name,        string,  true,     "String value"
+description, string,  false,    "String value"
+enabled,     boolean, false,    "Enabled status, default to true"
+userGroup,   IRI,     true,     "IRI value of UserGroup"
+tagsData,    json,    false,    "An object with Tag Groups IRI with arrays of Tags IRI"
+url,         string,  true,     "String value"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::post_collection_management_rules.csv[]
+|===
+
+==== Messages
+
+[cols=",~",format="csv",options="header"]
+|===
+ID, Content
+include::post_collection_messages.csv[]
+|===
+
+=== Read / Get Collection
+
+==== Description
+Retrieve a list of VideoStream
+/api/video_streams, method=Get
+
+==== Request Parameters
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters,     Type,    Required, Comment
+page,           number,  false,    "Page index, from 0"
+limit,          number,  false,    "Items per page"
+name,           string,  false,    "Filter by 'videoStream.name LIKE %name%' "
+userGroup.name, string,  false,    "Filter by 'videoStream.userGroup.name LIKE %name%' "
+enabled,        boolean, false,    "Enabled status"
+createdAt,      date,    false,    "Date of creation"
+updatedAt,      date,    false,    "Date of update"
+|===
+
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_collection_management_rules.csv[]
+|===
+
+=== Read / Get Item
+
+==== Description
+Retrieve a VideoStream
+/api/video_streams/{code}, method=Get
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::get_item_management_rules.csv[]
+|===
+
+
+
+=== Patch
+
+==== Description
+/api/video_streams/{code}, method=Patch
+
+===== Body Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,    Type,    Required, Comment
+name,        string,  false,     "String value"
+description, string,  false,    "String value"
+enabled,     boolean, false,    "Enabled status, default to true"
+userGroup,   IRI,     false,     "IRI value of UserGroup"
+tagsData,    json,    false,    "An object with Tag Groups IRI with arrays of Tags IRI"
+url,         string,  false,     "String value'
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch enable
+
+==== Description
+/api/video_streams/{code}/enable, method=Patch
+
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch disable
+
+==== Description
+/api/video_streams/{code}/disable, method=Patch
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+=== Patch name
+
+==== Description
+/api/video_streams/{code}/name, method=Patch
+
+===== Body Data (json)
+At least one of the fields must be provided.
+[cols=",,,~",format="csv",options="header"]
+|===
+Property, Type, Required, Comment
+name, string, false, "String value"
+description, string, false, "String value"
+
+|===
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::patch_enable_management_rules.csv[]
+|===
+
+<<<
+
+
+=== Update / Put Item
+
+==== Description
+Update a VideoStream
+/api/video_streams/{code}, method=Put
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+===== Put Data (json)
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Property,    Type,    Required, Comment
+name,        string,  true,     "String value"
+description, string,  false,    "String value"
+enabled,     boolean, false,    "Enabled status, default to true"
+userGroup,   IRI,     true,     "IRI value of UserGroup"
+tagsData,    json,    false,    "An object with Tag Groups IRI with arrays of Tags IRI"
+url,         string,  true,     "String value"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::put_item_management_rules.csv[]
+|===
+
+=== Delete / Delete Item
+
+==== Description
+Delete a VideoStream
+/api/video_streams/{code}, method=Delete
+
+==== Path Parameter
+
+[cols=",,,~",format="csv",options="header"]
+|===
+Parameters, Type, Required, Comment
+code, string, true, "uuid"
+|===
+
+==== Management rules
+
+[cols=",,,~",format="csv",options="header"]
+|===
+ID, Added, Expired, Description
+include::delete_item_management_rules.csv[]
+|===
